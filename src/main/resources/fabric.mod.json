@@ -18,6 +18,9 @@
   "entrypoints": {
     "client": [
       "com.github.slopggobblercobbler.litematicamaterialtracker.LitematicaMaterialTrackerMod"
+    ],
+    "modmenu": [
+      "com.github.slopggobblercobbler.litematicamaterialtracker.gui.ModMenuIntegration"
     ]
   },
   "depends": {
