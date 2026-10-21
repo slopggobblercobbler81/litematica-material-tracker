@@ -88,4 +88,6 @@ publishing {
     }
 }
 
-junitPlatform { platforms { junitJupiter { enabled = true } } }
+tasks.named('test') {
+    useJUnitPlatform()
+}
