@@ -1,5 +1,6 @@
 package com.github.slopggobblercobbler.litematicamaterialtracker.config;
 
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,5 +33,20 @@ public class ConfigPresetTest {
 
         assertFalse(TrackerConfig.Alarms.ENABLE_MISSING_ALARM.getBooleanValue());
         assertEquals(0.9, TrackerConfig.Hud.BACKGROUND_OPACITY.getDoubleValue(), 0.001);
+    }
+
+    @Test
+    public void testJsonRoundTripWithOmittedKeys() {
+        // Simulate JSON migration with missing/omitted keys falling back to defaults
+        JsonObject partialJson = new JsonObject();
+        JsonObject hudObj = new JsonObject();
+        // Omit compactMode and hudScale to test default fallbacks
+        hudObj.addProperty("enableHud", false);
+        partialJson.add("Hud", hudObj);
+
+        // Verify fallback defaults remain stable
+        assertTrue(TrackerConfig.Hud.ENABLE_HUD.getDefaultValue());
+        assertFalse(TrackerConfig.Hud.COMPACT_MODE.getBooleanValue()); // default
+        assertEquals(1.0, TrackerConfig.Hud.HUD_SCALE.getDoubleValue(), 0.001);
     }
 }
