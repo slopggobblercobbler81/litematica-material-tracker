@@ -1,0 +1,29 @@
+# Gradle & Loom Build Artifacts
+.gradle/
+build/
+bin/
+run/
+out/
+
+# Loom Remapping Cache
+.loom-cache/
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs & Crash Reports
+crash-reports/
+logs/
+*.log
